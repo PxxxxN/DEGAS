@@ -303,7 +303,11 @@ makeExec <- function(tmpDir,FFdepth,model_type){
   fout = file(paste0(tmpDir,model_type,'MTL_p4.py'))
   writeLines(outlines,fout)
   close(fout)
-  system(paste0("cat ",tmpDir,model_type,"MTL_p1.py ",tmpDir,model_type,"MTL_p2.py ",tmpDir,model_type,"MTL_p3.py ",tmpDir,model_type,"MTL_p4.py > ",tmpDir,model_type,"MTL.py"))
+  system2("cat", args = c(paste0(tmpDir, model_type, "MTL_p1.py"), 
+                        paste0(tmpDir, model_type, "MTL_p2.py"),
+                        paste0(tmpDir, model_type, "MTL_p3.py"),
+                        paste0(tmpDir, model_type, "MTL_p4.py")), 
+        stdout = paste0(tmpDir, model_type, "MTL.py"))
 }
 
 # Make python executable for densenet implementation
@@ -396,7 +400,11 @@ makeExec2 <- function(tmpDir,FFdepth,model_type){
   fout = file(paste0(tmpDir,model_type,'MTL_p4.py'))
   writeLines(outlines,fout)
   close(fout)
-  system(paste0("cat ",tmpDir,model_type,"MTL_p1.py ",tmpDir,model_type,"MTL_p2.py ",tmpDir,model_type,"MTL_p3.py ",tmpDir,model_type,"MTL_p4.py > ",tmpDir,model_type,"MTL.py"))
+  system2("cat", args = c(paste0(tmpDir, model_type, "MTL_p1.py"), 
+                        paste0(tmpDir, model_type, "MTL_p2.py"),
+                        paste0(tmpDir, model_type, "MTL_p3.py"),
+                        paste0(tmpDir, model_type, "MTL_p4.py")), 
+        stdout = paste0(tmpDir, model_type, "MTL.py"))
 }
 
 # train model wrapper function
